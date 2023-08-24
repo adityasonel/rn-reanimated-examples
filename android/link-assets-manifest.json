@@ -1,0 +1,41 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/FilsonProBold.otf",
+      "sha1": "faeecd2168ce1e0f2ce4587dc53a8dcf822e0aeb"
+    },
+    {
+      "path": "assets/fonts/FilsonProBook.otf",
+      "sha1": "12c5b8db4568415016d8e5321bc92646c4dff3c5"
+    },
+    {
+      "path": "assets/fonts/FilsonProLight.otf",
+      "sha1": "7967d85e68607e09c0ba02f88a93db2f80f18cb8"
+    },
+    {
+      "path": "assets/fonts/FilsonProMedium.otf",
+      "sha1": "d71e213519c911b66f24310267499d3f3b20ff64"
+    },
+    {
+      "path": "assets/fonts/FilsonProRegular.otf",
+      "sha1": "a42e1cbffef3bf54c3aaaf219f592167ac9f082d"
+    },
+    {
+      "path": "assets/fonts/Quicksand-Bold.ttf",
+      "sha1": "8727a6ae26c6646a7f25bfe6560e19c9265ea87c"
+    },
+    {
+      "path": "assets/fonts/Quicksand-Light.ttf",
+      "sha1": "739d87992cf1cd96cff0c9c32e40927385a38146"
+    },
+    {
+      "path": "assets/fonts/Quicksand-Medium.ttf",
+      "sha1": "48d202c7a215914264064dc27f6a8cd77ebe3036"
+    },
+    {
+      "path": "assets/fonts/Quicksand-Regular.ttf",
+      "sha1": "6eebfcb02f142c6e2bf58f7fcb31f10ec914a0ed"
+    }
+  ]
+}
