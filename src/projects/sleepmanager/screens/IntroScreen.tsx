@@ -2,16 +2,18 @@ import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import React, {useEffect} from 'react';
 import {
+  FlatList,
   SafeAreaView,
   StatusBar,
   StyleSheet,
-  Text,
   TouchableOpacity,
   TouchableWithoutFeedback,
   View,
 } from 'react-native';
 import Animated, {
   Easing,
+  FadeInDown,
+  ZoomInEasyUp,
   cancelAnimation,
   useAnimatedStyle,
   useSharedValue,
@@ -26,7 +28,6 @@ const IntroScreen: React.FC<IProps> = () => {
   const navigation = useNavigation<NativeStackNavigationProp<any>>();
 
   const rotation = useSharedValue(0);
-
   const spinStyle = useAnimatedStyle(() => {
     return {
       transform: [
@@ -54,11 +55,15 @@ const IntroScreen: React.FC<IProps> = () => {
       <StatusBar barStyle={'light-content'} />
       <View style={styles.container}>
         <View style={styles.topChild}>
-          <TouchableOpacity onPress={() => navigation.goBack()}>
+          <TouchableOpacity
+            style={styles.backButton}
+            onPress={() => navigation.goBack()}>
             <Icon name="arrow-back" size={32} color={'white'} />
           </TouchableOpacity>
 
-          <View style={styles.blackStarsContainer}>
+          <Animated.View
+            entering={ZoomInEasyUp.springify(1200)}
+            style={styles.blackStarsContainer}>
             <Animated.Image
               style={[styles.blackStarImage1, spinStyle]}
               source={require('../../../assets/sleepManager/wavyborderstar.png')}
@@ -71,13 +76,25 @@ const IntroScreen: React.FC<IProps> = () => {
               style={[styles.blackStarImage3, spinStyle]}
               source={require('../../../assets/sleepManager/wavyborderstar.png')}
             />
-          </View>
+          </Animated.View>
         </View>
         <View style={styles.bottomChild}>
-          <Text style={styles.introText}>
-            go for <Text style={styles.blueText}>better dreams</Text>
-            {'\n'}with{'\n'}us
-          </Text>
+          <FlatList
+            contentContainerStyle={styles.listContainerStyle}
+            data={['go for', 'better dreams', 'with', 'us']}
+            renderItem={({item, index}) => {
+              return (
+                <Animated.Text
+                  entering={FadeInDown.duration(1200)
+                    .easing(Easing.linear)
+                    .delay(index * 600)
+                    .springify(1200)}
+                  style={[styles.introText, index === 1 && styles.blueText]}>
+                  {item}
+                </Animated.Text>
+              );
+            }}
+          />
 
           <View style={styles.starButtonContainer}>
             <TouchableWithoutFeedback
@@ -113,6 +130,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#05040F',
   },
   topChild: {flex: 1},
+  backButton: {
+    zIndex: 10,
+  },
   blackStarsContainer: {},
   blackStarImage1: {
     width: 220,
@@ -136,8 +156,12 @@ const styles = StyleSheet.create({
     position: 'absolute',
   },
   bottomChild: {
-    flex: 2,
+    flex: 1,
     justifyContent: 'flex-end',
+  },
+  listContainerStyle: {
+    position: 'absolute',
+    bottom: 0,
   },
   introText: {
     fontFamily: 'Quicksand Bold',
@@ -153,6 +177,8 @@ const styles = StyleSheet.create({
   starButtonContainer: {
     position: 'absolute',
     right: 0,
+    bottom: 0,
+    zIndex: 10,
   },
   starButtonChildContainer: {
     alignItems: 'center',
