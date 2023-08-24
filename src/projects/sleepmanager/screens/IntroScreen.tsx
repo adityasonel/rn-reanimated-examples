@@ -7,7 +7,6 @@ import {
   StatusBar,
   StyleSheet,
   TouchableOpacity,
-  TouchableWithoutFeedback,
   View,
 } from 'react-native';
 import Animated, {
@@ -97,21 +96,18 @@ const IntroScreen: React.FC<IProps> = () => {
           />
 
           <View style={styles.starButtonContainer}>
-            <TouchableWithoutFeedback
-              onPress={() => navigation.navigate('details')}>
-              <View style={styles.starButtonChildContainer}>
-                <Animated.Image
-                  style={[styles.starImage, spinStyle]}
-                  source={require('../../../assets/sleepManager/wavystart.png')}
-                />
-                <Icon
-                  style={styles.starButtonIcon}
-                  name="arrow-forward"
-                  size={32}
-                  color={'black'}
-                />
-              </View>
-            </TouchableWithoutFeedback>
+            <View style={styles.starButtonChildContainer}>
+              <Animated.Image
+                style={[styles.starImage, spinStyle]}
+                source={require('../../../assets/sleepManager/wavystart.png')}
+              />
+              <Icon
+                style={styles.starButtonIcon}
+                name="arrow-forward"
+                size={32}
+                color={'black'}
+              />
+            </View>
           </View>
         </View>
       </View>

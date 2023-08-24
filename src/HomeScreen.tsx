@@ -10,10 +10,10 @@ const data: {title: string; route: string}[] = [
     route: 'sleepManager',
   },
   {
-    title: 'Insect Collection',
-    route: 'insectCollection',
+    title: 'Onboarding 1',
+    route: 'onboarding1',
   },
-  {title: 'Nutrition Monitor', route: 'nutritionMonitor'},
+  {title: 'Onboarding 2', route: 'onboarding2'},
   {title: 'Credit Companion', route: 'creditCompanion'},
   {title: 'Crypto Wallet', route: 'cryptoWallet'},
 ];

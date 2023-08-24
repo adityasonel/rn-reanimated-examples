@@ -2,7 +2,6 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React, {FC} from 'react';
 import IntroScreen from './src/projects/sleepmanager/screens/IntroScreen';
-import DetailsScreen from './src/projects/sleepmanager/screens/DetailsScreen';
 import HomeScreen from './src/HomeScreen';
 
 const SleepManagerStackNavigator = createNativeStackNavigator();
@@ -14,10 +13,6 @@ const SleepManagerStack = () => {
         headerShown: false,
       }}>
       <SleepManagerStackNavigator.Screen component={IntroScreen} name="intro" />
-      <SleepManagerStackNavigator.Screen
-        component={DetailsScreen}
-        name="details"
-      />
     </SleepManagerStackNavigator.Navigator>
   );
 };
