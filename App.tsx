@@ -3,6 +3,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React, {FC} from 'react';
 import IntroScreen from './src/projects/sleepmanager/screens/IntroScreen';
 import HomeScreen from './src/HomeScreen';
+import Onboarding1Screen from './src/projects/onboarding1/screens/Onboarding1Screen';
 
 const SleepManagerStackNavigator = createNativeStackNavigator();
 const SleepManagerStack = () => {
@@ -14,6 +15,22 @@ const SleepManagerStack = () => {
       }}>
       <SleepManagerStackNavigator.Screen component={IntroScreen} name="intro" />
     </SleepManagerStackNavigator.Navigator>
+  );
+};
+
+const Onboarding1StackNavigator = createNativeStackNavigator();
+const Onboarding1Stack = () => {
+  return (
+    <Onboarding1StackNavigator.Navigator
+      initialRouteName="intro"
+      screenOptions={{
+        headerShown: false,
+      }}>
+      <Onboarding1StackNavigator.Screen
+        component={Onboarding1Screen}
+        name="intro"
+      />
+    </Onboarding1StackNavigator.Navigator>
   );
 };
 
@@ -40,6 +57,13 @@ const App: FC = () => {
         <MainStackNavigator.Screen
           component={SleepManagerStack}
           name="sleepManager"
+          options={{
+            headerShown: false,
+          }}
+        />
+        <MainStackNavigator.Screen
+          component={Onboarding1Stack}
+          name="onboarding1"
           options={{
             headerShown: false,
           }}

@@ -27,6 +27,7 @@ const HomeScreen: FC = () => {
     <>
       <StatusBar barStyle={'light-content'} />
       <FlatList
+        overScrollMode="never"
         style={styles.flatList}
         data={data}
         renderItem={({item}) => (
